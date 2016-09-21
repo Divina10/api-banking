@@ -97,22 +97,37 @@ paths:
         
 definitions:
   EntidadFinanciera:
-    allOf:
-      - $ref: '#/definitions/NewEntidadFinanciera'
-      - required:
-        - id
-        properties:
-          id:
-            type: integer
-            format: int64
-  NewEntidadFinanciera:
+    type: object
     required:
-      - name
-    properties:
-      name:
+      - id-entidad-financiera
+    properties: 
+      id-entidad-financiera:
+        type: integer
+        format: int64
+        description: id de la entidad financiera
+      nombre-entidad-financiera:
         type: string
-      tag:
+        description: nombre de la entidad finaciera
+      direccion-entidad-financiera:
         type: string
+        description: ubicacion de la entidad financiera
+            
+  NewEntidadFinanciera:
+    type: object
+    required:
+      - nombre-entidad-financiera
+    properties: 
+      id-entidad-financiera:
+        type: integer
+        format: int64
+        description: id de la entidad financiera
+      nombre-entidad-financiera:
+        type: string
+        description: nombre de la entidad finaciera
+      direccion-entidad-financiera:
+        type: string
+        description: ubicacion de la entidad financiera
+  
   Error:
     required:
       - code
